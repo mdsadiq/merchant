@@ -1,0 +1,15 @@
+.header {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  justify-content: space-between;
+}
+.header > div {
+  font-size: 1.2em;
+  margin: auto 20px;
+  color: #fc8019;
+}
