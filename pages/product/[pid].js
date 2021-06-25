@@ -2,7 +2,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { GraphQLClient } from "graphql-request";
-import Navbar from "../../components/navbar/navbar";
+import { useState } from "react";
+import StarRatings from "../../components/StarRatings";
+
 const graphcms = new GraphQLClient(process.env.graphcmsurl);
 
 export async function getStaticProps({ params }) {
@@ -24,6 +26,7 @@ export async function getStaticProps({ params }) {
       reviews {
         name
         content
+        rating
       }
       variants {
         __typename
@@ -42,28 +45,6 @@ export async function getStaticProps({ params }) {
       pid: params.pid,
     }
   );
-  // console.log("gdata", gdata);
-
-  // const query = `query getProduct($pid: ID!){
-  // product(where: {id: $pid}) {
-  //     id
-  //     name
-  //     slug
-  //     description
-  //     images {
-  //       url
-  //       fileName
-  //       handle
-  //     }
-  //     price
-  //     reviews {
-  //       name
-  //       content
-  //       rating
-  //     }
-
-  //   }
-  // }`;
   return {
     props: {
       product,
@@ -83,36 +64,48 @@ export async function getStaticPaths() {
 const Product = ({ product }) => {
   const router = useRouter();
   const { pid } = router.query;
+  const [mainImage, setmainImage] = useState(product.images[0].url);
   console.log("product", product);
-  const colors = product.variants.reduce((a,item) => [ ...a, item.color ], [])
-  const sizes = product.variants.reduce((a,item) => [ ...a, item.size ], [])
+  const colors = product.variants.reduce((a, item) => [...a, item.color], []);
+  const sizes = product.variants.reduce((a, item) => [...a, item.size], []);
+  // const ratings =
+  //   product.reviews.reduce((a, r) => a + r.rating, 0) / product.reviews.length;
+
   return (
     <div>
-      <Navbar />
-
-      <div className="flex flex-col md:flex-row bg-black text-white">
-        <div className="w-4/6 relative border flex flex-col overflow-hidden">
-          <div className="absolute bg-gray-100 text-black text-lg font-bold p-2">
-            {product.name}
+      {/* product info over */}
+      <div className="flex flex-col lg:flex-row bg-black text-white">
+        <div style={{ backgroundColor:"#7b42ca" }} className="w-4/6 sm:w-full flex flex-col overflow-hidden sticky top-0 h-full">
+          <div class="relative">
+            <div className="absolute bg-gray-100 text-black text-lg font-bold p-2">
+              {product.name}
+            </div>
+            <div className="absolute bg-gray-100 text-black text-lg font-bold p-2 mt-11 z-0">
+              Rs {product.price}
+            </div>
           </div>
-          <div className="min-w-full">
-            <img src={`${product.images[0].url}`} />
+          <div className="" style={{ height: "36rem" }}>
+            <img src={mainImage} className="h-full m-auto" />
           </div>
-          <div className="min-w-24 flex flex-row overflow-x-scroll">
+          <div className="flex flex-row overflow-x-scroll">
             {product.images.map((image) => (
               <img
-                className="w-64 p-2"
+                className="w-52 p-2"
                 src={image.url}
-                alt={image.filename}
-                key={image.filename}
+                alt={image.fileName}
+                key={image.fileName}
+                onClick={() => {
+                  setmainImage(image.url);
+                }}
               />
             ))}
           </div>
           <div></div>
         </div>
-        <div className="w-2/6 flex flex-col border p-4">
+        <div className="w-2/6 flex flex-col p-4 pl-6">
           <section className="flex flex-col">
-            <div className="text-lg mx-2">COLOR</div>
+            {/* <div className="text-xl">{product.name}</div> */}
+            <div className="text-lg">COLOR</div>
             <div className="flex flex-row flex-wrap py-4">
               <button className="rounded-full bg-black text-white p-3 border-2 hover:border-white hover:scale-105 mx-2">
                 <span>
@@ -125,9 +118,9 @@ const Product = ({ product }) => {
                   >
                     <path
                       d="M20 6L9 17L4 12"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></path>
                   </svg>
                 </span>
@@ -143,9 +136,9 @@ const Product = ({ product }) => {
                   >
                     <path
                       d="M20 6L9 17L4 12"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></path>
                   </svg>
                 </span>
@@ -153,34 +146,48 @@ const Product = ({ product }) => {
             </div>
           </section>
           <section className="flex flex-col pt-4">
-            <div className="text-lg mx-2">SIZE</div>
+            <div className="text-lg">SIZE</div>
             <div className="flex flex-row flex-wrap py-4">
-              {sizes.map(s => 
-              <button className="rounded-full text-white border-2 border-gray-400 hover:border-white hover:bg-gray-900 mx-2 w-14 h-14 flex items-center justify-center hover:scale-105">
-                {s}
-              </button>
-              )}
-               {/* <button className="rounded-full text-white border-2 border-gray-400 hover:border-white hover:bg-gray-900 mx-2 w-14 h-14 flex items-center justify-center hover:scale-105">
-                S
-               </button>
-
-               <button className="rounded-full text-white border-2 border-gray-400 hover:border-white hover:bg-gray-900 mx-2 w-14 h-14 flex items-center justify-center hover:scale-105">
-                 M
-               </button> */}
+              {sizes.map((s) => (
+                <button
+                  key={s}
+                  className="rounded-full text-white border-2 border-gray-400 hover:border-white hover:bg-gray-900 mx-2 w-14 h-14 flex items-center justify-center hover:scale-105"
+                >
+                  {s.length > 3 ? s[0] : s}
+                </button>
+              ))}
             </div>
           </section>
           <section className="pt-5">{product.description}</section>
-          <section className="pt-5 flex flex-row justify-between">
+          <section className="pt-10 flex flex-row justify-between">
             <div>
-              {product.reviews.reduce((a, r) => (a + r.rating), 0) / product.reviews.length }
-              star
+              <StarRatings reviews={product.reviews} />
             </div>
             <div className="justify-items-end">
               {product.reviews.length} reviews
             </div>
           </section>
-          <div>Price {product.price}</div>
+          <section className="pt-5">
+            <button className="w-full bg-white text-lg text-black font-bold p-4">
+              Add to Cart
+            </button>
+          </section>
+          <section className="pt-5">
+            All India Shipping Available
+          </section>
+          <section className="pt-5">
+            This is a limited edition Hoodie up for sale
+          </section>
+          <section className="pt-5">
+            <div className="text-lg">CARE</div>
+            This is a limited edition Hoodie up for sale
+          </section>
         </div>
+      </div>
+      <hr />
+      {/* product info over */}
+      <div>
+        <h2>Related Products</h2>
       </div>
     </div>
   );
