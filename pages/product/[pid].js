@@ -109,6 +109,7 @@ const Product = ({ product }) => {
           </div>
           <div></div>
         </div>
+
         <div className="w-full md:w-2/6 flex flex-col p-4 pl-6">
           <section className="flex flex-col">
             {/* <div className="text-xl">{product.name}</div> */}
