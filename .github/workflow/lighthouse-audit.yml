@@ -1,7 +1,12 @@
 # workflow for running lighthouse audit and see the result
 name: Run Lighthouse Audit
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build-storybook:
