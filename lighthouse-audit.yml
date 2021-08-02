@@ -1,0 +1,32 @@
+# workflow for running lighthouse audit and see the result
+name: Run Lighthouse Audit
+
+on:
+  push:
+    branches: [ master, lighthouse-setup ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # possible to update setup-node to v2?
+      - uses: actions/setup-node@v1
+        with:
+          # check node version
+          node-version: 10.x
+      - name: npm install
+        run: |
+          yarn
+          yarn global add @lhci/cli@0.8.x
+      - name: Build the app
+        run: |
+          yarn build
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun || echo "Lighthouse CI failed"
+        # env:
+        #   LHCI_GITHUB_APP_TOKEN:${{LIGHTHOUSE_APP_TOKEN}}
