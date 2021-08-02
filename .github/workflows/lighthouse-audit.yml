@@ -18,6 +18,8 @@ jobs:
           yarn
           yarn global add @lhci/cli@0.8.x
       - name: Build the app
+        env:
+          graphcmsurl: GRAPHCMSURL
         run: |
           yarn build
       - name: Run Lighthouse CI
