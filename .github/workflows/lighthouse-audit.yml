@@ -26,4 +26,4 @@ jobs:
         run: |
           lhci autorun
         env:
-          LHCI_GITHUB_APP_TOKEN: ${{LIGHTHOUSE_CI_TOKEN}}
+          LHCI_GITHUB_APP_TOKEN: ${{secrets.LIGHTHOUSE_CI_TOKEN}}
