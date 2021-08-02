@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           # check node version
-          node-version: 10.x
+          node-version: 12.x
       - name: npm install
         run: |
           yarn
