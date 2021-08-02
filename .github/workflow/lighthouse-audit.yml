@@ -3,7 +3,7 @@ name: Run Lighthouse Audit
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, lighthouse-setup ]
   pull_request:
     branches: [ master ]
   workflow_dispatch:
