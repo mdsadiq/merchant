@@ -1,6 +1,7 @@
 {
   "ci": {
     "collect": {
+      "staticDistDir":".next",
       "startServerCommand": "npm run start",
       "startServerReadyPattern": "ready on"
     },
