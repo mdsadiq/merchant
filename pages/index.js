@@ -34,6 +34,15 @@ export default function IndexPage() {
               <p className="mt-4 text-xl">Go to Product 221</p>
             </a>
           </Link>
+          <Link href="/day">
+            <a
+              href="#"
+              className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
+            >
+              <h3 className="text-2xl font-bold">Hello Day</h3>
+              <p className="mt-4 text-xl">Go to the intro day</p>
+            </a>
+          </Link>
           <a
             href="https://nextjs.org/docs"
             className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
