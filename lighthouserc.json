@@ -1,9 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir":"./.next",
-      "startServerCommand": "npm run start",
-      "startServerReadyPattern": "ready on"
+      "staticDistDir":"./.next"
     },
     "assert": {
       "preset": "lighthouse:recommended",
