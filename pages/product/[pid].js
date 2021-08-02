@@ -7,7 +7,6 @@ import { useState } from "react";
 import StarRatings from "../../components/StarRatings";
 
 const graphcms = new GraphQLClient(process.env.graphcmsurl);
-console.log('test',graphcms)
 export async function getStaticProps({ params }) {
   // ckdu4awq00h140104ijzi92kv
   const { product } = await graphcms.request(

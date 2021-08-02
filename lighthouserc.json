@@ -1,12 +1,5 @@
 {
   "ci": {
-    "collect": {
-      "url": [
-        "http://localhost:3000/",
-        "http://localhost:3000/day"
-      ],
-      "numberOfRuns": 2
-    },
     "assert": {
       "preset": "lighthouse:recommended",
       "assertions": {
