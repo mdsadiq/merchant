@@ -25,5 +25,5 @@ jobs:
       - name: Run Lighthouse CI
         run: |
           lhci autorun
-        # env:
-        #   LHCI_GITHUB_APP_TOKEN: ${{LIGHTHOUSE_APP_TOKEN}}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{LIGHTHOUSE_CI_TOKEN}}
