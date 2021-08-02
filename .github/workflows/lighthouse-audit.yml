@@ -4,7 +4,7 @@ name: Run Lighthouse Audit
 on: [push]
 
 jobs:
-  build-storybook:
+  lighthouse-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
