@@ -1,4 +1,4 @@
-# workflow for running lighthouse audit and get the result
+# workflow for running lighthouse audit and see the result
 name: Run Lighthouse Audit
 
 on: [push]
