@@ -9,7 +9,7 @@ module.exports = {
       // "startServerReadyTimeout": 20000, // milliseconds
 
       // "startServerReadyPattern": "started server on 0.0.0.0:3000",
-      "url": [ "http://localhost/", "http://localhost/day/" ],
+      // "url": [ "http://localhost/", "http://localhost/day/" ],
       // "url": [
       //   "http://localhost:3000/",
       //   "http://localhost:3000/day"
