@@ -3,10 +3,11 @@
 module.exports = {
   "ci": {
     "collect": {
-      "staticDistDir":"./.next",
-      "url": [ "http://localhost/", "http://localhost/day" ],
-      // "startServerCommand": "npm run start",
+      // "staticDistDir":"./.next",
+      // "url": [ "http://localhost/", "http://localhost/day" ],
+      "startServerCommand": "npm run start",
       // "startServerReadyPattern": "started server on 0.0.0.0:3000",
+      "url": [ "http://localhost/", "http://localhost/day" ],
       // "url": [
       //   "http://localhost:3000/",
       //   "http://localhost:3000/day"
