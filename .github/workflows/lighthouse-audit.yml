@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # possible to update setup-node to v2?
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v1
         with:
           # check node version
-          node-version: 14.x
+          node-version: 12.x
       - name: npm install
         run: |
           yarn
