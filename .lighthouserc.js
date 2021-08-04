@@ -5,8 +5,8 @@ module.exports = {
     "collect": {
       "staticDistDir":"./.next",
       "url": [
-        "/",
-        "/day"
+        "http://localhost:44117/",
+        "http://localhost:44117/day"
       ],
       "numberOfRuns": 2
     },
