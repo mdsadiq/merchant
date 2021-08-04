@@ -3,8 +3,7 @@
 module.exports = {
   "ci": {
     "collect": {
-      "staticDistDir":"./.next",
-      "numberOfRuns": 1
+      "staticDistDir":"./.next"
     },
     "assert": {
       // "preset": "lighthouse:recommended",
