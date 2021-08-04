@@ -4,7 +4,7 @@ module.exports = {
   "ci": {
     "collect": {
       "staticDistDir":"./.next",
-      "url": [ "/" ],
+      "url": [ "http://localhost/", "http://localhost/day" ],
       // "startServerCommand": "npm run start",
       // "startServerReadyPattern": "started server on 0.0.0.0:3000",
       // "url": [
