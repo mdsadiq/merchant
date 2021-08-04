@@ -3,7 +3,12 @@
 module.exports = {
   "ci": {
     "collect": {
-      "staticDistDir":"./.next"
+      "staticDistDir":"./.next",
+      "url": [
+        "/",
+        "/day"
+      ],
+      "numberOfRuns": 2
     },
     "assert": {
       // "preset": "lighthouse:recommended",
