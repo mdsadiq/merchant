@@ -2,20 +2,6 @@
 
 module.exports = {
   "ci": {
-    "collect": {
-      "staticDistDir":"./.next",
-      // "url": [ "http://localhost:3000/", "http://localhost:3000/day", "http://localhost:3000/" ],
-      // "startServerCommand": "npm run start",
-      // "startServerReadyTimeout": 20000, // milliseconds
-
-      // "startServerReadyPattern": "started server on 0.0.0.0:3000",
-      // "url": [ "http://localhost/", "http://localhost/day/" ],
-      // "url": [
-      //   "http://localhost:3000/",
-      //   "http://localhost:3000/day"
-      // ],
-      "numberOfRuns": 1
-    },
     "assert": {
       // "preset": "lighthouse:recommended",
       "assertions": {
