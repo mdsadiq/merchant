@@ -1,7 +1,7 @@
 # workflow for running lighthouse audit and see the result
 name: Run Lighthouse Audit
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build-storybook:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           # check node version
-          node-version: 10.x
+          node-version: 12.x
       - name: npm install
         run: |
           yarn
