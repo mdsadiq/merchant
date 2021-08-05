@@ -4,8 +4,8 @@
       "startServerCommand": "npm run start",
       "startServerReadyTimeout": 20000,
       "url": [
-        "http://localhost/",
-        "http://localhost/day"
+        "http://localhost:3000/",
+        "http://localhost:3000/day"
       ],
       "numberOfRuns": 2
     },
