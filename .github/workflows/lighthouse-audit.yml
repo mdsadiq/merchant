@@ -4,12 +4,11 @@ name: Run Lighthouse Audit
 on: [pull_request]
 
 jobs:
-  build-storybook:
+  lighthouse-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # possible to update setup-node to v2?
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           # check node version
           node-version: 12.x
