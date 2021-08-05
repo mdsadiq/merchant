@@ -17,10 +17,12 @@ jobs:
           yarn
           yarn global add @lhci/cli@0.8.x
       - name: Build the app
+        env:
+          graphcmsurl: ${{secrets.GRAPHCMSURL}}
         run: |
           yarn build
       - name: Run Lighthouse CI
         run: |
-          lhci autorun || echo "Lighthouse CI failed"
+          lhci autorun
         # env:
         #   LHCI_GITHUB_APP_TOKEN:${{LIGHTHOUSE_APP_TOKEN}}
