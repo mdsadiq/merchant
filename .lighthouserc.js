@@ -21,7 +21,10 @@ module.exports = {
       },
     },
     upload: {
-      target: "temporary-public-storage",
+      // target: "temporary-public-storage",
+      target: 'lhci',
+      serverBaseUrl: 'https://glacial-eyrie-43671.herokuapp.com',
+      // token set in command cli LHCI_BUILD_TOKEN
     },
   },
 };

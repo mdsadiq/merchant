@@ -23,6 +23,6 @@ jobs:
           yarn build
       - name: Run Lighthouse CI
         run: |
-          lhci autorun
+          lhci autorun --upload.token=${{secrets.LHCI_BUILD_TOKEN}}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LIGHTHOUSE_CI_TOKEN}}
