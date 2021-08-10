@@ -1,7 +1,11 @@
 # workflow for running lighthouse audit and see the result
 name: Run Lighthouse Audit
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lighthouse-audit:
