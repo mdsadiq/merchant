@@ -37,4 +37,4 @@ jobs:
     - name: Compare lighthouse data
       uses: mdsadiq/lighthouse-compare@v1.0.3
       with:
-        lhci-server: https://glacial-eyrie-43671.herokuapp.com
+        lhciServerURL: https://glacial-eyrie-43671.herokuapp.com
