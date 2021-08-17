@@ -30,3 +30,11 @@ jobs:
           lhci autorun --upload.token=${{secrets.LHCI_BUILD_TOKEN}}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LIGHTHOUSE_CI_TOKEN}}
+    
+  compare-data:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Compare lighthouse data
+      uses: mdsadiq/lighthouse-compare@v1.0
+      with:
+        lhci-server: https://glacial-eyrie-43671.herokuapp.com
