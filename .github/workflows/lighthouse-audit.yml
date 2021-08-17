@@ -35,6 +35,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Compare lighthouse data
-      uses: mdsadiq/lighthouse-compare@v1.0.x
+      uses: mdsadiq/lighthouse-compare@^v1.0.x
       with:
         lhciServerURL: https://glacial-eyrie-43671.herokuapp.com
