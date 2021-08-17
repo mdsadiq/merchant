@@ -9,7 +9,7 @@ module.exports = {
         "http://localhost:3000/",
         "http://localhost:3000/day/"
       ],
-      numberOfRuns: 2,
+      numberOfRuns: 1,
     },
     assert: {
       // preset: "lighthouse:no-pwa",
