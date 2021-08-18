@@ -32,9 +32,10 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LIGHTHOUSE_CI_TOKEN}}
     
   compare-data:
+    needs: lighthouse-audit
     runs-on: ubuntu-latest
     steps:
     - name: Compare lighthouse data
-      uses: mdsadiq/lighthouse-compare@v1.0.10
+      uses: mdsadiq/lighthouse-compare@v1.0.11
       with:
         lhciServerURL: https://glacial-eyrie-43671.herokuapp.com
