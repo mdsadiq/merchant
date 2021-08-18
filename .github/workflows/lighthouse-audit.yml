@@ -8,34 +8,33 @@ on:
   pull_request:
 
 jobs:
-  # lighthouse-audit:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         # check node version
-  #         node-version: 14.x
-  #     - name: npm install
-  #       run: |
-  #         yarn
-  #         yarn global add @lhci/cli@0.8.x
-  #     - name: Build the app
-  #       env:
-  #         graphcmsurl: ${{secrets.GRAPHCMSURL}}
-  #       run: |
-  #         yarn build
-  #     - name: Run Lighthouse CI
-  #       run: |
-  #         lhci autorun --upload.token=${{secrets.LHCI_BUILD_TOKEN}}
-  #       env:
-  #         LHCI_GITHUB_APP_TOKEN: ${{secrets.LIGHTHOUSE_CI_TOKEN}}
+  lighthouse-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          # check node version
+          node-version: 14.x
+      - name: npm install
+        run: |
+          yarn
+          yarn global add @lhci/cli@0.8.x
+      - name: Build the app
+        env:
+          graphcmsurl: ${{secrets.GRAPHCMSURL}}
+        run: |
+          yarn build
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun --upload.token=${{secrets.LHCI_BUILD_TOKEN}}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{secrets.LIGHTHOUSE_CI_TOKEN}}
     
   compare-data:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
     - name: Compare lighthouse data
-      uses: mdsadiq/lighthouse-compare@v1.0.8
+      uses: mdsadiq/lighthouse-compare@v1.0.9
       with:
         lhciServerURL: https://glacial-eyrie-43671.herokuapp.com
