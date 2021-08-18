@@ -34,6 +34,7 @@ jobs:
   compare-data:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Compare lighthouse data
       uses: mdsadiq/lighthouse-compare@v1.0.8
       with:
