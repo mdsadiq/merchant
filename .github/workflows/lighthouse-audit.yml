@@ -31,7 +31,7 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{secrets.LIGHTHOUSE_CI_TOKEN}}
       - name: Compare lighthouse data
-        uses: mdsadiq/lighthouse-compare@v1.1.8
+        uses: mdsadiq/lighthouse-compare@v1.1.9
         with:
           lhciServerURL: https://glacial-eyrie-43671.herokuapp.com
     
